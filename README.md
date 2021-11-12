@@ -26,6 +26,8 @@ Users should be able to:
 ![](./images/ss/768.JPG)\
 ![](./images/ss/1440.JPG)
 
+### Links
+
 - [Live](https://bague-rodnel.github.io/single-price-grid-component/)
 
 ## My process
