@@ -1,0 +1,215 @@
+@use "sass:math";
+
+@function fluid($min, $max, $minvw: 375px, $maxvw: 1440px) {
+  @return calc(
+    #{$min} + (#{math.div($max - $min, 1px)}) * ((100vw - #{$minvw}) /
+          (#{math.div($maxvw - $minvw, 1px)}))
+  );
+}
+
+$color-cyan: hsl(179, 62%, 43%);
+$color-cyan-lighter: hsl(179, 47%, 52%);
+$color-yellow-bright: hsl(71, 73%, 54%);
+$color-gray-light: hsl(204, 43%, 93%);
+$color-blue-grayish: hsl(218, 22%, 67%);
+
+$font-fam: "Karla", sans-serif;
+$font-wt-normal: 400;
+$font-wt-bold: 700;
+
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  font-size: 16px;
+  font-family: $font-fam;
+}
+
+body {
+  background-color: $color-gray-light;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  font-weight: $font-wt-bold;
+  font-size: 1.125rem;
+}
+
+.component {
+  margin: 0 32px;
+
+  .header {
+    background-color: white;
+    padding-top: fluid(32px, 42px);
+    padding-bottom: fluid(32px, 42px);
+    padding-left: fluid(25px, 40px);
+    padding-right: fluid(25px, 40px);
+
+    color: $color-blue-grayish;
+
+    .heading {
+      color: $color-cyan;
+      margin-bottom: 1.75rem;
+    }
+
+    .lead {
+      color: $color-yellow-bright;
+      font-weight: $font-wt-bold;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.4;
+    }
+  }
+
+  .details {
+    color: $color-gray-light;
+
+    .col {
+      padding-top: fluid(28px, 42px);
+      padding-left: fluid(24px, 40px);
+      padding-right: fluid(24px, 40px);
+      padding-bottom: fluid(25px, 38px);
+
+      .heading {
+        color: white;
+        margin-bottom: 20px;
+      }
+    }
+
+    .plan {
+      background-color: $color-cyan;
+
+      .lead {
+        color: $color-gray-light;
+        margin-bottom: fluid(12px, 16px);
+
+        em {
+          color: white;
+          font-weight: $font-wt-bold;
+          font-style: normal;
+          font-size: 30px;
+        }
+      }
+
+      p {
+        margin-bottom: 28px;
+      }
+
+      .btn {
+        display: block;
+        border-radius: 0.25rem;
+        box-shadow: 0 3px 1rem 0 hsla(360, 0, 0%, 0.25);
+        background-color: $color-yellow-bright;
+        padding: 1em 0;
+        color: white;
+        font-weight: $font-wt-bold;
+        text-align: center;
+
+        span {
+          position: relative;
+          transition: 0.5s;
+
+          &::after {
+            content: "\2713";
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            right: -22px;
+            transition: 0.5s;
+          }
+        }
+
+        &:hover span {
+          padding-right: 18px;
+        }
+
+        &:hover span::after {
+          right: 0;
+          opacity: 1;
+        }
+      }
+    }
+
+    .why {
+      background-color: $color-cyan-lighter;
+
+      .articles {
+        line-height: 1.36rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 425px) {
+  .component {
+    text-align: center;
+
+    .plan .btn {
+      width: 248px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 520px) {
+  .component {
+    width: 456px;
+  }
+}
+
+@media (min-width: 800px) {
+  .component {
+    width: fluid(576px, 635px);
+    text-align: left;
+
+    .details {
+      display: flex;
+
+      .col {
+        flex: 1;
+      }
+
+      .plan .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
