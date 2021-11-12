@@ -110,14 +110,17 @@ body {
       background-color: $color-cyan;
 
       .lead {
-        color: $color-gray-light;
+        color: hsla(0, 100, 100%, 0.5);
+        font-weight: 200;
         margin-bottom: fluid(12px, 16px);
 
         em {
+          vertical-align: middle;
           color: white;
           font-weight: $font-wt-bold;
           font-style: normal;
           font-size: 30px;
+          margin-right: 12px;
         }
       }
 

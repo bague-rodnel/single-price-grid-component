@@ -84,14 +84,17 @@ body {
   background-color: #2ab2af;
 }
 .component .details .plan .lead {
-  color: #e5eff5;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 200;
   margin-bottom: calc( 12px + (4) * ((100vw - 375px) / (1065)) );
 }
 .component .details .plan .lead em {
+  vertical-align: middle;
   color: white;
   font-weight: 700;
   font-style: normal;
   font-size: 30px;
+  margin-right: 12px;
 }
 .component .details .plan p {
   margin-bottom: 28px;
