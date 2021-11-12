@@ -22,9 +22,9 @@ Users should be able to:
 
 ### Screenshots
 
-![](./screenshot.JPG)
-![](./screenshot.JPG)
-![](./screenshot.JPG)
+![](./images/ss/375.JPG)\
+![](./images/ss/768.JPG)\
+![](./images/ss/1440.JPG)
 
 - [Live](https://bague-rodnel.github.io/single-price-grid-component/)
 
